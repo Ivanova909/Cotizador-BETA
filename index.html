@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Yamaha — De Los Ángeles Motor's</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Barlow:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<div id="app">
+  <div class="header">
+    <div class="logo-wrap">
+      <div class="logo-y">YAMAHA</div>
+      <div class="logo-text">De Los Ángeles Motor's</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-icon" onclick="reiniciar()" title="Reiniciar cotización">🔄 Reiniciar</button>
+      <button class="btn-icon" onclick="abrirCatalogo()" title="Catálogo (próximamente)">📋 Catálogo</button>
+      <div class="step-pill">Paso <span id="stepLabel">1</span> de <span id="stepTotal">3</span></div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:33%"></div></div>
+  <div class="chat" id="chat"></div>
+  <div class="input-area" id="inputArea" style="display:none">
+    <div class="input-wrap">
+      <input type="text" id="userInput" placeholder="Escribe aquí..." autocomplete="off">
+    </div>
+    <button class="send-btn" onclick="handleSend()">
+      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- MODAL DE IMPRESIÓN -->
+<div class="modal-overlay" id="modalImpresion">
+  <div class="modal-container">
+    <div class="modal-head">
+      <div class="modal-title">Previsualización de Cotización</div>
+      <button class="modal-close" onclick="cerrarModal('modalImpresion')">✕</button>
+    </div>
+    <div class="modal-body" id="printAreaContainer"></div>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="ejecutarImpresion()">🖨️ Imprimir</button>
+      <button class="btn-primary btn-secondary" onclick="compartirDoc()">📲 Compartir</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS (en el orden correcto) -->
+<script src="js/datos.js"></script>
+<script src="js/funciones.js"></script>
+<script src="js/vista.js"></script>
+<script src="js/impresion.js"></script>
+<script src="js/flujo.js"></script>
+
+</body>
+</html>
