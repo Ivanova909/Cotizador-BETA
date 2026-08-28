@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Yamaha — De Los Ángeles Motor's</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Barlow:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<div id="app">
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-wrap">
+        <div class="logo-y">YAMAHA</div>
+        <img src="img/logos/logo2.png" alt="De Los Ángeles Motor's" class="logo-img">
+        <div class="logo-text">De Los Ángeles Motor's</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" onclick="reiniciar()" title="Reiniciar cotización">🔄 Reiniciar</button>
+        <div class="step-pill">Paso <span id="stepLabel">1</span> de <span id="stepTotal">3</span></div>
+      </div>
+    </div>
+    <div class="header-actions-row">
+      <button class="btn-admin" onclick="abrirAdminCatalogo()" title="Administrar catálogo">🛠️ Administrar catálogo</button>
+      <button class="btn-gallery" onclick="abrirGaleria()" title="Galería por modelo">🖼️ Galería por modelo</button>
+    </div>
+  </div>
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:33%"></div></div>
+  <div class="chat" id="chat"></div>
+  <div class="input-area" id="inputArea" style="display:none">
+    <div class="input-wrap">
+      <input type="text" id="userInput" placeholder="Escribe aquí..." autocomplete="off">
+    </div>
+    <button class="send-btn" onclick="handleSend()">
+      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- MODAL DE IMPRESIÓN -->
+<div class="modal-overlay" id="modalImpresion">
+  <div class="modal-container">
+    <div class="modal-head">
+      <div class="modal-title">Previsualización de Cotización</div>
+      <button class="modal-close" onclick="cerrarModal('modalImpresion')">✕</button>
+    </div>
+    <div class="modal-body" id="printAreaContainer"></div>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="ejecutarImpresion()">🖨️ Imprimir</button>
+      <button class="btn-primary btn-secondary" onclick="compartirDoc()">📲 Compartir</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE ADMINISTRAR CATÁLOGO -->
+<div class="modal-overlay" id="modalAdmin">
+  <div class="modal-container">
+    <div class="modal-head">
+      <div class="modal-title">Administrar catálogo</div>
+      <button class="modal-close" onclick="cerrarModal('modalAdmin')">✕</button>
+    </div>
+    <div class="modal-body" id="adminBodyContainer"></div>
+  </div>
+</div>
+
+<!-- MODAL DE EDICIÓN DE UNA MOTO (se abre sobre el de arriba) -->
+<div class="modal-overlay modal-stacked" id="modalEditarMoto">
+  <div class="modal-container" style="max-width:420px;">
+    <div class="modal-head">
+      <div class="modal-title" id="modalEditarMotoTitulo">Editar motocicleta</div>
+      <button class="modal-close" onclick="cerrarModal('modalEditarMoto')">✕</button>
+    </div>
+    <div class="modal-body" id="editMotoBody"></div>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="guardarEdicionMoto()">Guardar cambios</button>
+      <button class="btn-primary btn-secondary" onclick="cerrarModal('modalEditarMoto')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE GALERÍA POR MODELO -->
+<div class="modal-overlay" id="modalGaleria">
+  <div class="modal-container">
+    <div class="modal-head">
+      <div class="modal-title">Galería por modelo</div>
+      <button class="modal-close" onclick="cerrarModal('modalGaleria')">✕</button>
+    </div>
+    <div class="modal-body" id="galeriaBodyContainer"></div>
+  </div>
+</div>
+
+<!-- SCRIPTS (en el orden correcto) -->
+<script src="js/datos.js"></script>
+<script src="js/catalogo-admin.js"></script>
+<script src="js/galeria.js"></script>
+<script src="js/funciones.js"></script>
+<script src="js/vista.js"></script>
+<script src="js/impresion.js"></script>
+<script src="js/flujo.js"></script>
+
+</body>
+</html>

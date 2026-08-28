@@ -1,0 +1,20 @@
+Carpeta de logotipos
+=====================
+
+Aquí se colocan los archivos de imagen de los logotipos usados en la
+aplicación y en la cotización impresa. Se puede seguir esta convención
+de nombres para no reemplazar ninguno existente:
+
+  logo1.png  -> Logotipo Yamaha (color oficial DD0916)
+  logo2.png  -> Logotipo De Los Ángeles Motor's
+  logo3.png  -> (reservado para un futuro tercer logotipo)
+  logo4.png  -> (reservado)
+
+La cotización (js/impresion.js) ya busca automáticamente:
+  img/logos/logo1.png  (Yamaha)
+  img/logos/logo2.png  (De Los Ángeles Motor's)
+
+Si el archivo aún no existe, la app no se rompe: simplemente conserva
+el logotipo de texto que ya tenía (no depende de que estas imágenes
+estén cargadas). En cuanto subas los PNG/JPG correspondientes con
+estos nombres, se mostrarán automáticamente en la cotización.
